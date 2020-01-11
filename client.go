@@ -19,7 +19,7 @@ type client struct {
 func (c *client) read() {
 	for {
 		if _, msg, err := c.socket.ReadMessage(); err == nil {
-			c.room.forword <- msg
+			c.room.forward <- msg
 		} else {
 			break
 		}
