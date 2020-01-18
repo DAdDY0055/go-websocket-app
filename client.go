@@ -24,13 +24,13 @@ func (c *client) read() {
 			break
 		}
 	}
-	c.socket.Close()
+	c.socket.Close()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 }
 
 func (c *client) write() {
 	for msg := range c.send {
 		if err := c.socket.WriteMessage(websocket.TextMessage, msg);
-		  err == nil {
+		  err != nil {
 			break
 		}
 	}
