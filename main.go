@@ -7,6 +7,8 @@ import (
 	"path/filepath"
 	"sync"
 	"flag"
+	"os"
+	"github.com/DAdDY0055/go-websocket-app/trace"
 )
 
 // templは1つのテンプレートを表す
@@ -30,6 +32,7 @@ func main() {
 	var addr = flag.String("addr", ":8080", "アプリケーションのアドレス")
 	flag.Parse() // フラグを解釈する
 	r := newRoom()
+	r.tracer = trace.New(os.Stdout)
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
 
