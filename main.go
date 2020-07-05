@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"net/http"	
+	"net/http"
 	"text/template"
 	"path/filepath"
 	"sync"
